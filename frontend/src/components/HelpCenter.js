@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import './HelpCenter.css';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import "./HelpCenter.css";
+import axios from "axios";
 
 const HelpCenter = () => {
   const [cards, setCards] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(''); // New state for search query
+  const [searchQuery, setSearchQuery] = useState(""); // New state for search query
 
   useEffect(() => {
-    axios.get('http://localhost:4000/cards/')
-      .then(response => {
+    axios
+      .get("http://localhost:4000/cards/")
+      .then((response) => {
         setCards(response.data.data);
       })
-      .catch(error => {
-        console.error('Error fetching data:', error);
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
   }, []);
 
   // Filter cards based on search query
-  const filteredCards = cards.filter(card =>
+  const filteredCards = cards.filter((card) =>
     card.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -27,7 +28,7 @@ const HelpCenter = () => {
         <div className="logo">Abstract | Help Center</div>
         <button className="submit-request">Submit a request</button>
       </header>
-      
+
       <div className="content">
         <h1>How can we help?</h1>
         <div className="search-bar">
@@ -50,7 +51,7 @@ const HelpCenter = () => {
           ))}
         </div>
       </div>
-      
+
       <footer className="footer">
         <div className="footer-section">
           <h3>Abstract</h3>
@@ -79,9 +80,14 @@ const HelpCenter = () => {
           <p>Contact Us</p>
           <p>info@abstract.com</p>
         </div>
+        <div className="footer-copyright">
+          <p>© Copyright 2022 </p>
+          <p>Abstract Studio Design, Inc.</p>
+          <p>All rights reserved</p>
+        </div>
       </footer>
     </div>
   );
-}
+};
 
 export default HelpCenter;

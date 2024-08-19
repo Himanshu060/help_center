@@ -17,4 +17,4 @@ Supports Multiple State Variables: You can use multiple useState hooks to manage
 Integrates with Functional Components: Works seamlessly with React's functional components, promoting a simpler and more declarative code style that's easy to maintain and reason about.
 
 
-cd ../frontend then run command - npm run start
+cd ./frontend then run command - npm run start

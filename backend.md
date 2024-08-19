@@ -1,2 +1,2 @@
-for backend - cd ../backend then 
+for backend - cd ./backend then 
       command - npm run server 
